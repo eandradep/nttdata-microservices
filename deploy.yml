@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  server-config:
+    image: eandradep/ntt-data-server-config:version1
+    container_name: server-config
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: "650M"
+        reservations:
+          cpus: "1.5"
+          memory: "150M"
+    environment:
+      JAVA_OPTS: "-Xms256M -Xmx256M"
+    ports:
+      - "8888:8888"
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    restart: always
+    environment:
+      - POSTGRES_USER=userAdmin
+      - POSTGRES_PASSWORD=userAdminPassword
+      - POSTGRES_DB=dbNttDataBase
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
