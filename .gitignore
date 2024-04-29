@@ -1,0 +1,29 @@
+# .gitignore
+/target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.properties
+*.yaml
+*.yml
+.METADATA
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+*.rej
+*~
+## Ignore IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+## Ignore macOS .DS_Store files
+.DS_Store
