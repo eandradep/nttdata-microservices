@@ -1,6 +1,6 @@
 package com.ntt.data.client.service.models.services;
 
-import com.ntt.data.client.service.models.entity.Client;
+import com.ntt.data.common.module.models.service.client.Client;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -32,7 +32,10 @@ public interface IClientService {
      * @param personId the ID of the client to retrieve
      * @return the client with the specified ID
      */
-    @Transactional()
+    @Transactional(readOnly = true)
     Client getClientById(Long personId);
+
+    @Transactional(readOnly = true)
+    Client getClientByIdentity(String identity);
 
 }

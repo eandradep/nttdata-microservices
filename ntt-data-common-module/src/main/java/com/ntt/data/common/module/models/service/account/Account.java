@@ -1,7 +1,7 @@
-package com.ntt.data.account.service.models.entity;
+package com.ntt.data.common.module.models.service.account;
 
-import com.ntt.data.account.service.models.enums.AccountType;
-import io.swagger.v3.oas.annotations.Hidden;
+import com.ntt.data.common.module.enums.AccountType;
+import com.ntt.data.common.module.models.service.client.Client;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 
 @Setter
 @Getter
-@Hidden
 @Entity
 @Table(name = "account", schema = "account_schema")
 public class Account implements Serializable {
@@ -32,6 +31,10 @@ public class Account implements Serializable {
 
     @Column(name = "status", nullable = false)
     private Boolean status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
+    private Client client;
 
     public void changeStatus() {
         this.status = !this.status;

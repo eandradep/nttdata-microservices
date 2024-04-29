@@ -1,4 +1,4 @@
-package com.ntt.data.account.service.models.enums;
+package com.ntt.data.common.module.enums;
 
 public enum TransactionType {
     RETIRO,

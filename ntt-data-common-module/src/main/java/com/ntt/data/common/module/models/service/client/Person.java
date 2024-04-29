@@ -1,17 +1,15 @@
-package com.ntt.data.client.service.models.entity;
+package com.ntt.data.common.module.models.service.client;
 
 
-import com.ntt.data.client.service.models.dto.UpdateClientDto;
 import lombok.Getter;
 import lombok.Setter;
-import io.swagger.v3.oas.annotations.Hidden;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
 @Setter
 @Getter
-@Hidden
 @MappedSuperclass
 public abstract class Person implements Serializable {
 
@@ -32,13 +30,5 @@ public abstract class Person implements Serializable {
 
     @Column(name = "phone_number", length = 15)
     private String phoneNumber;
-
-    public void updateData(UpdateClientDto updateClientDto) {
-        this.name =  updateClientDto.getName();
-        this.gender= updateClientDto.getGender();
-        this.age = updateClientDto.getAge();
-        this.address = updateClientDto.getAddress();
-        this.phoneNumber= updateClientDto.getPhoneNumber();
-    }
 
 }

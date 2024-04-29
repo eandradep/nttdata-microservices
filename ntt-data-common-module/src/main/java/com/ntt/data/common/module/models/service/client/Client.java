@@ -1,6 +1,5 @@
-package com.ntt.data.client.service.models.entity;
+package com.ntt.data.common.module.models.service.client;
 
-import io.swagger.v3.oas.annotations.Hidden;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +8,6 @@ import java.io.Serializable;
 
 @Setter
 @Getter
-@Hidden
 @Entity
 @Table(name = "client", schema = "client_schema")
 public class Client extends Person implements Serializable {

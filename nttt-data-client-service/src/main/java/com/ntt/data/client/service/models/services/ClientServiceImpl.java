@@ -1,7 +1,7 @@
 package com.ntt.data.client.service.models.services;
 
 import com.ntt.data.client.service.models.dao.ClientDAO;
-import com.ntt.data.client.service.models.entity.Client;
+import com.ntt.data.common.module.models.service.client.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +30,11 @@ public class ClientServiceImpl implements IClientService {
     @Override
     public Client getClientById(Long personId) {
         return this.clientRepository.findById(personId).orElse(null);
+    }
+
+    @Override
+    public Client getClientByIdentity(String identity) {
+        return this.clientRepository.findByIdentification(identity).orElse(null);
     }
 
 }

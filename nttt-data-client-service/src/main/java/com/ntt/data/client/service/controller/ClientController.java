@@ -2,9 +2,9 @@ package com.ntt.data.client.service.controller;
 
 import com.ntt.data.client.service.models.dto.CreateClientDto;
 import com.ntt.data.client.service.models.dto.UpdateClientDto;
-import com.ntt.data.client.service.models.entity.Client;
-import com.ntt.data.client.service.models.entity.Person;
 import com.ntt.data.client.service.models.services.IClientService;
+import com.ntt.data.common.module.models.service.client.Client;
+import com.ntt.data.common.module.models.service.client.Person;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -131,7 +131,11 @@ public class ClientController {
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
         }
         try {
-            clienteActual.updateData(cliente);
+            clienteActual.setName(cliente.getName());
+            clienteActual.setGender(cliente.getGender());
+            clienteActual.setAge(cliente.getAge());
+            clienteActual.setAddress(cliente.getAddress());
+            clienteActual.setPhoneNumber(cliente.getPhoneNumber());
             clienteUpdated = this.iClientService.saveClient(clienteActual);
         } catch (DataAccessException e) {
             response.put("mensaje", "Error al actualizar el cliente en la base de datos");

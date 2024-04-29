@@ -1,7 +1,7 @@
-package com.ntt.data.account.service.models.entity;
+package com.ntt.data.common.module.models.service.account;
 
-import com.ntt.data.account.service.models.enums.TransactionType;
-import io.swagger.v3.oas.annotations.Hidden;
+
+import com.ntt.data.common.module.enums.TransactionType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,7 +12,6 @@ import java.util.Date;
 
 @Setter
 @Getter
-@Hidden
 @Entity
 @Table(name = "transactions", schema = "account_schema")
 public class Transactions implements Serializable {
