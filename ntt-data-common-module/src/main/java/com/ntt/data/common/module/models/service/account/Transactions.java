@@ -32,4 +32,8 @@ public class Transactions implements Serializable {
     @Column(name = "current_balance", nullable = false)
     private BigDecimal currentBalance;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id")
+    private Account account;
+
 }

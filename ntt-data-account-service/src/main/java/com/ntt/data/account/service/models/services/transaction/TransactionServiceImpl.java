@@ -5,6 +5,7 @@ import com.ntt.data.common.module.models.service.account.Transactions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,18 +25,9 @@ public class TransactionServiceImpl implements ITransactionService{
     }
 
     @Override
-    public List<Transactions> getTransactionsByAccountId(Long accountId) {
-        return List.of();
-    }
-
-    @Override
-    public List<Transactions> getTransactionsByUserId(Long userId) {
-        return List.of();
-    }
-
-    @Override
-    public List<Transactions> getTransactionsByAccountIdAndUserId(Long accountId, Long userId) {
-        return List.of();
+    public List<Transactions> getTransactionsByAccountIdAndUserId(Date startDate, Date endDate, Long clientId) {
+        System.out.println("startDate:"+startDate+"endDate:"+endDate+"clientId:"+clientId);
+        return this.transactionsDAO.findTransactionsByAccountClientClientId(clientId);
     }
 
 

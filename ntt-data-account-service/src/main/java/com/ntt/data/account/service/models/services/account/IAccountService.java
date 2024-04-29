@@ -6,9 +6,13 @@ import java.util.List;
 
 public interface IAccountService {
 
-    Account getAccount(Long accountId);
+    Account getAccountById(Long accountId);
 
-    Account createAccount(Account account);
+    Account saveAccount(Account account);
 
     List<Account> getAllAccounts();
+
+    Account getAccountByNumber(String number);
+
+    List<Account> getAccountByClientId(Long clientId);
 }
