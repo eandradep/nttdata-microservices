@@ -71,10 +71,11 @@ public class TransactionController {
             }
             account.setInitialBalance(newInitialBalance);
             this.accountService.saveAccount(account);
-            account.setClient(null);
+            Account newAccount = new Account();
+            newAccount.setAccountId(account.getAccountId());
             transactions.setCurrentBalance(newInitialBalance);
             transactions.setDate(new Date());
-            transactions.setAccount(account);
+            transactions.setAccount(newAccount);
             newTransaction = transactionService.create(transactions);
 
             response.put("message", "Datos registrados correctamente!");
